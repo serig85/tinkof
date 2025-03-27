@@ -1,0 +1,85 @@
+
+def z1():
+    mes = '100  10  12  15'
+    lmes = mes.split('  ')
+    pererashod = int(lmes[3]) - int(lmes[1])
+    if pererashod <0:
+        pererashod = 0
+    vsego = int(lmes[0]) + pererashod * int(lmes[2])
+    print(vsego)
+
+def z2():
+    x = int(input())
+    if x & (x - 1) == 0:
+        k = -1
+    else:
+        k = 0
+    while x != 0:
+            k += 1
+            x //= 2
+
+    print(k)
+
+
+def z3():
+    nt = list(map(int, ('6  7'.split('  '))))
+    level = list(map(int, ('1  2  3  6  8  25'.split('  '))))
+    sotr = 5
+    l_sotr = level[sotr -1]
+    max_level, min_level = max(level), min(level)
+    verh = max_level - min_level + max_level - l_sotr
+    niz = max_level - min_level - min_level + l_sotr
+
+    if max_level - l_sotr <= nt[1] or l_sotr - min_level <= nt[1]:
+        print(max_level - min_level)
+    elif verh < niz:
+        print(verh)
+    else:
+        print(niz)
+
+def z4():
+    np =list(map(int, ('3  1'.split('  '))))
+    chisla = '99  5  85'.split('  ')
+    lj = []
+    lc = []
+    lcen = []
+    for i in range(len(chisla)):
+        li = list(chisla[i])
+        spr_r = chisla[i]
+        for j in range(len(li)):
+            li[j] = '9'
+            lj.append(li[j])
+            spr = ''.join(li)
+            cena = int(spr) - int(spr_r)
+            lcen.append(cena)
+            spr_r = spr
+
+        lc.append(''.join(lj))
+        lj =[]
+
+    lcen.sort(reverse= True)
+    print(sum(lcen[:np[1]]))
+
+def z5():
+    lr = ('12 100').split(' ')
+    l = []
+
+    for i in range(1, len(lr[1])+1):
+        for j in range(1, 10):
+            l.append(int(str(j)*i))
+
+    i = 0
+    while int(lr[0]) > l[i]:
+        i += 1
+    #print(i)
+
+    j = i
+    while int(lr[1]) >= l[j]:
+        j += 1
+    #print(j)
+
+    print(j-i)
+
+
+
+z5()
